@@ -29,6 +29,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
+                //MARK: Chat View
                ScrollView {
                     ForEach(viewModel.messages) { message in
                         Text(message.date)
@@ -66,7 +68,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 25, height: 25)
                             .foregroundColor(text.isEmpty ? .secondary : .blue)
                     }
                     
