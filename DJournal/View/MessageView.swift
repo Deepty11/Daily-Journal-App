@@ -21,19 +21,12 @@ struct MessageView: View {
     var body: some View {
         HStack {
             Spacer()
-            if #available(iOS 15.0, *) {
-                createBasicTextField(with: message)
-                    .background(.blue)
-                    .cornerRadius(20)
-            } else {
-                createBasicTextField(with: message)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [.blue, .blue]),
-                                       startPoint: .topLeading,
-                                       endPoint: .bottomTrailing)
-                    )
-                    .cornerRadius(20)
-            }
+            createBasicTextField(with: message)
+                .background(
+                    CustomLinearGradient(fromColor: Color("yonderBlue"),
+                                         toColor: Color("glaucousBlue"))
+                )
+                .cornerRadius(20)
             
         }
     }

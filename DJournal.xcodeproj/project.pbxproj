@@ -15,7 +15,7 @@
 		3DA391DE2A3052EA0017581A /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA391DD2A3052EA0017581A /* MessageModel.swift */; };
 		3DA391E22A3057EC0017581A /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA391E12A3057EC0017581A /* ContentViewVM.swift */; };
 		3DA391E52A3058D60017581A /* MessageStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA391E42A3058D60017581A /* MessageStrings.swift */; };
-		3DA391E72A3077200017581A /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA391E62A3077200017581A /* OvalView.swift */; };
+		FD1E444D2A32E62900F4708C /* CustomLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E444C2A32E62900F4708C /* CustomLinearGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		3DA391DD2A3052EA0017581A /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		3DA391E12A3057EC0017581A /* ContentViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVM.swift; sourceTree = "<group>"; };
 		3DA391E42A3058D60017581A /* MessageStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStrings.swift; sourceTree = "<group>"; };
-		3DA391E62A3077200017581A /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
+		FD1E444C2A32E62900F4708C /* CustomLinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLinearGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +61,9 @@
 		3DA391C92A3031A30017581A /* DJournal */ = {
 			isa = PBXGroup;
 			children = (
+				FD1E444E2A32E87300F4708C /* Extension */,
 				3DA391E32A30589F0017581A /* Strings */,
 				3DA391E02A3057D40017581A /* ViewModel */,
-				3DA391DF2A3055380017581A /* Extension */,
 				3DA391DC2A3052CA0017581A /* Model */,
 				3DA391D92A30474E0017581A /* View */,
 				3DA391D82A3047450017581A /* App */,
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA391DA2A3047BB0017581A /* MessageView.swift */,
-				3DA391E62A3077200017581A /* OvalView.swift */,
+				FD1E444C2A32E62900F4708C /* CustomLinearGradient.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,13 +105,6 @@
 				3DA391DD2A3052EA0017581A /* MessageModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		3DA391DF2A3055380017581A /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		3DA391E02A3057D40017581A /* ViewModel */ = {
@@ -128,6 +121,13 @@
 				3DA391E42A3058D60017581A /* MessageStrings.swift */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		FD1E444E2A32E87300F4708C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA391E72A3077200017581A /* OvalView.swift in Sources */,
+				FD1E444D2A32E62900F4708C /* CustomLinearGradient.swift in Sources */,
 				3DA391DB2A3047BB0017581A /* MessageView.swift in Sources */,
 				3DA391E22A3057EC0017581A /* ContentViewVM.swift in Sources */,
 				3DA391CD2A3031A30017581A /* ContentView.swift in Sources */,

@@ -8,72 +8,59 @@
 import SwiftUI
 
 extension View {
-    @available(iOS 15.0, *)
-    func textFieldModifiersFor15AndAbove() -> some View {
-        self.textFieldStyle(.roundedBorder)
-            .overlay {
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .stroke(.blue, lineWidth: 1)
-            }
+    func textFieldModifiers() -> some View {
+        self.padding()
+            .background(Color.gray.opacity(0.1))
+            .background(RoundedRectangle(cornerRadius: 15,
+                                         style: .continuous)
+            .stroke(Color("yonderBlue"), lineWidth: 1))
     }
 }
+
 struct ContentView: View {
     @State var text: String = ""
     @State var isTextEmpty: Bool = true
     @StateObject var viewModel = ContentViewVM()
     
-    init() {
-        prepareNavigationAppearance()
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
-                
                 //MARK: Chat View
-               ScrollView {
-                    ForEach(viewModel.messages) { message in
-                        Text(message.date)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                            .padding(.top, 10)
-                        MessageView(message: message.text)
-                            .padding(.trailing, 10)
+                    ScrollView {
+                        ForEach(Array(viewModel.messages.enumerated()), id: \.offset){ index, message in
+                            Text(message.date)
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .padding(.top, 10)
+                            MessageView(message: message.text)
+                                .padding(.trailing, 10)
+                        }
+                        .rotationEffect(.degrees(180))
                     }
-                }
+                    .rotationEffect(.degrees(180))
+                    
+                
          
                 //MARK: TextField section
                 HStack(alignment: .bottom) {
-                    if #available(iOS 15.0, *) {
-                        TextField("Write here", text: $text)
-                            .textFieldModifiersFor15AndAbove()
-                            .frame(minHeight: 30)
+                    if #available(iOS 15, *) {
+                        messageTextField()
+                            .onSubmit { onSubmit() }
+                        
                     } else {
-                        HStack {
-                            TextField("Write here", text: $text)
-                                .frame(minHeight: 30)
-                            
-                        }
-                        .textFieldStyle(OvalTextFieldStyle())
+                        messageTextField()
                     }
                     
                     Button {
-                        withAnimation(.linear) {
-                            if !text.isEmpty {
-                                viewModel.addMessage(text)
-                                text = ""
-                            }
-                            
-                        }
+                        onSubmit()
                     } label: {
                         Image(systemName: "paperplane.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(text.isEmpty ? .secondary : .blue)
+                            
                     }
-                    
+                    .font(.system(size: 26))
+                    .foregroundColor(text.isEmpty ? .secondary : Color("yonderBlue"))
+                    .padding(10)
                 }
-                .frame(minWidth: 50)
                 .padding()
                 
             }
@@ -84,15 +71,19 @@ struct ContentView: View {
         
     }
     
-    func prepareNavigationAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(.blue)
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    func messageTextField() -> some View {
+        TextField("Write here", text: $text)
+            .textFieldModifiers()
     }
     
+    func onSubmit() {
+        withAnimation(.easeIn) {
+            if !text.isEmpty {
+                viewModel.addMessage(text)
+                text = ""
+            }
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
