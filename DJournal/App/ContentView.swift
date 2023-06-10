@@ -9,11 +9,9 @@ import SwiftUI
 
 extension View {
     func textFieldModifiers() -> some View {
-        self.padding()
+        self
             .background(Color.gray.opacity(0.1))
-            .background(RoundedRectangle(cornerRadius: 15,
-                                         style: .continuous)
-            .stroke(Color("yonderBlue"), lineWidth: 1))
+            .textFieldStyle(.roundedBorder)
     }
 }
 
@@ -59,7 +57,6 @@ struct ContentView: View {
                     }
                     .font(.system(size: 26))
                     .foregroundColor(text.isEmpty ? .secondary : Color("yonderBlue"))
-                    .padding(10)
                 }
                 .padding()
                 
