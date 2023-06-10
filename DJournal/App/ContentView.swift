@@ -11,6 +11,7 @@ extension View {
     func textFieldModifiers() -> some View {
         self
             .background(Color.gray.opacity(0.1))
+            .padding(2)
             .textFieldStyle(.roundedBorder)
     }
 }
