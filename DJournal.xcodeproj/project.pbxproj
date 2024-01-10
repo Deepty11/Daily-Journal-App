@@ -17,6 +17,9 @@
 		3DA391E52A3058D60017581A /* MessageStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA391E42A3058D60017581A /* MessageStrings.swift */; };
 		FA8EF33F2B4E666D0010C095 /* SingleMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EF33E2B4E666C0010C095 /* SingleMessageView.swift */; };
 		FA8EF3412B4E6B960010C095 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EF3402B4E6B960010C095 /* View.swift */; };
+		FA8EF3452B4E73D30010C095 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EF3442B4E73D30010C095 /* PersistenceController.swift */; };
+		FA8EF34D2B4E7C9D0010C095 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8EF34B2B4E7C9D0010C095 /* Main.xcdatamodeld */; };
+		FA8EF3532B4E9BEC0010C095 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EF3522B4E9BEC0010C095 /* MessageEntity.swift */; };
 		FD1E444D2A32E62900F4708C /* CustomLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E444C2A32E62900F4708C /* CustomLinearGradient.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +34,10 @@
 		3DA391E12A3057EC0017581A /* ContentViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVM.swift; sourceTree = "<group>"; };
 		3DA391E42A3058D60017581A /* MessageStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStrings.swift; sourceTree = "<group>"; };
 		FA8EF33E2B4E666C0010C095 /* SingleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMessageView.swift; sourceTree = "<group>"; };
-		FA8EF3402B4E6B960010C095 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = DJournal/View/View.swift; sourceTree = SOURCE_ROOT; };
+		FA8EF3402B4E6B960010C095 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = DJournal/Extension/View.swift; sourceTree = SOURCE_ROOT; };
+		FA8EF3442B4E73D30010C095 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		FA8EF34C2B4E7C9D0010C095 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		FA8EF3522B4E9BEC0010C095 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		FD1E444C2A32E62900F4708C /* CustomLinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLinearGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +71,9 @@
 		3DA391C92A3031A30017581A /* DJournal */ = {
 			isa = PBXGroup;
 			children = (
-				FD1E444E2A32E87300F4708C /* Extension */,
+				FA8EF3472B4E7C420010C095 /* Data */,
+				FA8EF3462B4E73D80010C095 /* Extension */,
+				FA8EF3432B4E73A00010C095 /* Controller */,
 				3DA391E32A30589F0017581A /* Strings */,
 				3DA391E02A3057D40017581A /* ViewModel */,
 				3DA391DC2A3052CA0017581A /* Model */,
@@ -128,12 +136,29 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
-		FD1E444E2A32E87300F4708C /* Extension */ = {
+		FA8EF3432B4E73A00010C095 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA8EF3442B4E73D30010C095 /* PersistenceController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA8EF3462B4E73D80010C095 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				FA8EF3402B4E6B960010C095 /* View.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		FA8EF3472B4E7C420010C095 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA8EF34B2B4E7C9D0010C095 /* Main.xcdatamodeld */,
+				FA8EF3522B4E9BEC0010C095 /* MessageEntity.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +239,10 @@
 				FA8EF3412B4E6B960010C095 /* View.swift in Sources */,
 				3DA391CB2A3031A30017581A /* DJournalApp.swift in Sources */,
 				3DA391E52A3058D60017581A /* MessageStrings.swift in Sources */,
+				FA8EF3532B4E9BEC0010C095 /* MessageEntity.swift in Sources */,
 				3DA391DE2A3052EA0017581A /* MessageModel.swift in Sources */,
+				FA8EF34D2B4E7C9D0010C095 /* Main.xcdatamodeld in Sources */,
+				FA8EF3452B4E73D30010C095 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +445,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA8EF34B2B4E7C9D0010C095 /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA8EF34C2B4E7C9D0010C095 /* Main.xcdatamodel */,
+			);
+			currentVersion = FA8EF34C2B4E7C9D0010C095 /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3DA391BF2A3031A30017581A /* Project object */;
 }
