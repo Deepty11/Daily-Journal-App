@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-extension View {
-    func textFieldModifiers() -> some View {
-        self
-            .background(Color.gray.opacity(0.1))
-            .padding(2)
-            .textFieldStyle(.roundedBorder)
+// MARK: View Builder for chat container
+struct ChatContainerView<Content: View>: View {
+    @ViewBuilder var content: () -> Content
+   
+    var body: some View {
+        ScrollView {
+            content()
+            .rotationEffect(.degrees(180))
+        }
+        .rotationEffect(.degrees(180))
     }
+    
 }
 
 struct ContentView: View {
@@ -25,21 +30,12 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 //MARK: Chat View
-                    ScrollView {
-                        ForEach(Array(viewModel.messages.enumerated()), id: \.offset){ index, message in
-                            Text(message.date)
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                                .padding(.top, 10)
-                            MessageView(message: message.text)
-                                .padding(.trailing, 10)
-                        }
-                        .rotationEffect(.degrees(180))
+                ChatContainerView {
+                    ForEach(Array(viewModel.messages.enumerated()), id: \.offset){ index, message in
+                        SingleMessageView(message: message)
                     }
-                    .rotationEffect(.degrees(180))
-                    
+                }
                 
-         
                 //MARK: TextField section
                 HStack(alignment: .bottom) {
                     if #available(iOS 15, *) {
